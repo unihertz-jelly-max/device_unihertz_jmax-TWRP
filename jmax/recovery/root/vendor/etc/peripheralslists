@@ -1,0 +1,34 @@
+This SW Support Peripherals Lists As Follow :;
+Gsensor Lists :;
+SH3201;
+
+Msensor Lists :;
+ST480MS;
+
+Gyrsensor Lists :;
+BMP390;
+
+ALS/PS Lists :;
+STK3A5X;
+STK37A60;
+
+Lcd Lists :;
+ILI9883C;
+
+TouchPanel Lists :;
+ILI9883C;
+
+Carmera Lists :;
+ova0b40_mipi_raw;
+s5kgd1sp_mipi_raw;
+hi847_mipi_raw;
+
+Memory Lists :;
+SMAUM19QZZDDA0TPQS;
+H9RT1GGM6XX004;
+KMJS9001RM_BG01;
+H9RT2GGA65X031;
+KU37S9GODNM-SAS;
+KU21S9GODNM-SAF;
+H9RT1GGA65X029E;
+MT30AZZZDDA0TPQS-031;
