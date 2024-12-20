@@ -16,6 +16,7 @@
         device/mediatek/common/project_manifest/manifest_apmonitor.xml
         device/mediatek/vendor/common/project_manifest/manifest_composer.xml
         device/mediatek/vendor/common/project_manifest/manifest_atms.xml
+        vendor/agold/apps/vendor.mediatek.hardware.agolddaemon@1.0-service/manifest.xml
         device/mediatek/vendor/common/manifest_target_level.xml
         device/mediatek/vendor/common/manifest.xml
 -->
@@ -126,6 +127,10 @@
     <hal format="aidl">
         <name>vendor.mediatek.hardware.aee</name>
         <fqname>IAee/AEE</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.mediatek.hardware.agolddaemon</name>
+        <fqname>IAgoldDaemon/default</fqname>
     </hal>
     <hal format="aidl">
         <name>vendor.mediatek.hardware.apmonitor</name>
