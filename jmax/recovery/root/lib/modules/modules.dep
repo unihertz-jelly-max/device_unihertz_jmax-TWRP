@@ -194,3 +194,4 @@
 /lib/modules/drm_display_helper.ko:
 /lib/modules/mtk-mmdvfs-ftrace.ko:
 /lib/modules/mtk_mdpm.ko:
+/lib/modules/ILI9883C_tp.ko: /lib/modules/agold_pm_info.ko

@@ -181,3 +181,4 @@ leds-aw2033.ko
 agold_board_info.ko
 agold_pm_info.ko
 agold_hw_compatible.ko
+ILI9883C_tp.ko
