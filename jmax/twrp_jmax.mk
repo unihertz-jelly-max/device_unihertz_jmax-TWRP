@@ -23,4 +23,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 PRODUCT_MANUFACTURER := A-gold
 PRODUCT_BRAND := Unihertz
-PRODUCT_MODEL := Jelly_Max
+PRODUCT_MODEL := Jelly Max
