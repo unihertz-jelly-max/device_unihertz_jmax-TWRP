@@ -1,12 +1,12 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
-# Inherit some common Omni stuff.
+# Configure twrp config common.mk
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Inherit from jmax device
+# Device specific configs
 $(call inherit-product, device/unihertz/jmax/device.mk)
 
 # Configure launch_with_vendor_ramdisk.mk
