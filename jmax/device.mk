@@ -63,8 +63,5 @@ PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery \
 
-# Hidl Service
-PRODUCT_ENFORCE_VINTF_MANIFEST := true
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
