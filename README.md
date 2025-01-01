@@ -77,6 +77,7 @@ cd ~/OrangeFox_sync/sync/
 ```
 mkdir ~/TWRP
 sed -i '/\/asuite\"/d' ~/TWRP/.repo/manifests/remove-minimal.xml
+sed -i '/\/gflags\"/d' ~/TWRP/.repo/manifests/remove-minimal.xml
 ./repo sync
 ```
 
