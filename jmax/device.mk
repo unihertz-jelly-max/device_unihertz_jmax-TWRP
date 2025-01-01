@@ -4,6 +4,12 @@ LOCAL_PATH := device/unihertz/jmax
 # Dynamic
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 34
+
+# API level
+PRODUCT_SHIPPING_API_LEVEL := 34
+
 # A/B partitions
 ENABLE_VIRTUAL_AB := true
 AB_OTA_UPDATER := true
