@@ -16,5 +16,8 @@ ro.vendor.mtk_trustkernel_tee_support=1
 ro.hardware.gatekeeper=trustkernel
 ro.vendor.trustkernel.attest_ids=1
 
+# Keymaster
+keymaster_ver=4.1
+
 # Misc
 ro.vendor.mediatek.platform=MT6878
