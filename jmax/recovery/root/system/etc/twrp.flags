@@ -4,7 +4,7 @@
 
 #<mnt_point>          <type> <device>                 <device2>  <mnt_flags and options>
 /metadata             f2fs   /dev/block/by-name/metadata         flags=display="metadata";backup=1
-/data                 f2fs   /dev/block/by-name/userdata         flags=display="UserData";fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
+/data                 f2fs   /dev/block/by-name/userdata         flags=display="UserData";fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity
 
 /logo                 emmc   /dev/block/by-name/logo             flags=display="Splashcreen Bootlogo [ logo ]";slotselect;backup=1;flashimg=1
 /misc                 emmc   /dev/block/by-name/misc             flags=display="misc";backup=1

@@ -11,7 +11,10 @@ ro.sys.usb.storage.type=mtp
 ro.crypto.volume.filenames_mode=aes-256-cts
 
 # TEE
-ro.vendor.mtk_tee_gp_support=1
+ro.tee_support=1
+ro.vendor.mtk_trustkernel_tee_support=1
+ro.hardware.gatekeeper=trustkernel
+ro.vendor.trustkernel.attest_ids=1
 
 # Misc
 ro.vendor.mediatek.platform=MT6878

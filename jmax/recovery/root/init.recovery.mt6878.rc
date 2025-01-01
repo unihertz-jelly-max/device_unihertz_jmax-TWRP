@@ -1,3 +1,5 @@
+import /init.recovery.trustkernel.rc
+
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "11201000.usb0"
@@ -7,6 +9,23 @@ on init
 on fs
     wait /dev/block/platform/soc/112b0000.ufshci
     symlink /dev/block/platform/soc/112b0000.ufshci /dev/block/bootdevice
+
+    mkdir /mnt/vendor 0755 system system
+    mkdir /mnt/vendor/protect_f 0770 system system
+    mkdir /mnt/vendor/protect_s 0770 system system
+    mkdir /mnt/vendor/persist   0755 system system
+    mkdir /mnt/vendor/nvdata    0771 system system
+    mkdir /mnt/vendor/nvcfg     0771 system system
+    mount ext4 /dev/block/by-name/protect1 /mnt/vendor/protect_f rw wait
+    mount ext4 /dev/block/by-name/protect2 /mnt/vendor/protect_s rw wait
+    mount ext4 /dev/block/by-name/persist  /mnt/vendor/persist   rw wait
+    mount ext4 /dev/block/by-name/nvdata   /mnt/vendor/nvdata    rw wait
+    mount ext4 /dev/block/by-name/nvcfg    /mnt/vendor/nvcfg     rw wait
+    mkdir /mnt/vendor/persist/t6    0755 system system
+    mkdir /mnt/vendor/protect_f/tee 0755 system system
+
+    install_keyring
+    setprop crypto.ready 1 
 
 on post-fs
     # Support A/B feature for EMMC and UFS boot region
@@ -62,3 +81,50 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     disabled
     seclabel u:r:recovery:s0
+
+service vendor.gatekeeper /vendor/bin/hw/android.hardware.gatekeeper-service.trustkernel
+    class hal
+    interface aidl android.hardware.gatekeeper.IGatekeeper/default
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service vendor.keymint /vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustkernel
+    class early_hal
+    interface aidl android.hardware.security.keymint.IKeyMintDevice/default
+    interface aidl android.hardware.security.keymint.IRemotelyProvisionedComponent/default
+    interface aidl android.hardware.security.sharedsecret.ISharedSecret/default
+    interface aidl android.hardware.security.secureclock.ISecureClock/default
+    user root
+    group root drmrpc
+    disabled
+    seclabel u:r:recovery:s0
+
+on property:crypto.ready=1
+    start vendor.keymint
+
+on property:vendor.sys.listener.registered=true
+    #start teed
+    start vendor.gatekeeper
+    start vendor.keymint
+   
+on property:hwservicemanager.ready=true
+    #start teed
+    start vendor.gatekeeper
+    start vendor.keymint
+
+on property:ro.crypto.state=unsupported
+    stop teed
+    stop vendor.gatekeeper
+    stop vendor.keymint
+
+on property:ro.crypto.state=unencrypted
+    stop teed
+    stop vendor.gatekeeper
+    stop vendor.keymint
+
+on property:twrp.decrypt.done=true
+    stop teed
+    stop vendor.gatekeeper
+    stop vendor.keymint
