@@ -10,6 +10,10 @@ on fs
     wait /dev/block/platform/soc/112b0000.ufshci
     symlink /dev/block/platform/soc/112b0000.ufshci /dev/block/bootdevice
 
+    chmod +x /vendor/bin/*
+    chmod +x /vendor/bin/hw/*
+    # */
+
     mkdir /mnt/vendor 0755 system system
     mkdir /mnt/vendor/protect_f 0770 system system
     mkdir /mnt/vendor/protect_s 0770 system system
