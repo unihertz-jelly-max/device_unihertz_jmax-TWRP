@@ -65,6 +65,16 @@ on boot
     exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
     start mtk.plpath.utils.link
     start health-hal-2-1
+    start system_suspend
+    
+    chown root root /sys/class/leds/vibrator/trigger
+    chown root root /sys/class/leds/vibrator/activate
+    chown root root /sys/class/leds/vibrator/brightness
+    chown root root /sys/class/leds/vibrator/duration
+    chown root root /sys/class/leds/vibrator/state
+    chown root root /sys/class/timed_output/vibrator/enable
+    write /sys/class/leds/vibrator/trigger "transient"
+    start vendor.vibrator-default
 
 on property:persist.vendor.mtk.pl_lnk=1
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
@@ -77,6 +87,24 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     user root
     group root system
     oneshot
+    disabled
+    seclabel u:r:recovery:s0
+
+service system_suspend /system/bin/hw/android.system.suspend-service
+    class early_hal
+    interface aidl android.system.suspend.ISystemSuspend/default
+    user root
+    group root wakelock
+    capabilities BLOCK_SUSPEND
+    disabled
+    seclabel u:r:recovery:s0
+
+service vendor.vibrator-default /vendor/bin/hw/android.hardware.vibrator-service.mediatek
+    class hal
+    interface aidl android.hardware.vibrator.IVibrator/default
+    interface aidl android.hardware.vibrator.IVibratorManager/default
+    user root
+    group root input
     disabled
     seclabel u:r:recovery:s0
 

@@ -155,7 +155,8 @@ TW_USE_FSCRYPT_POLICY := 2
 TW_FORCE_KEYMASTER_VER := true
 
 # TWRP vibro
-TW_NO_HAPTICS := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/default"
 
 # TWRP Backup options
 TW_BACKUP_EXCLUSIONS := /data/fonts/files
