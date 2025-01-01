@@ -74,4 +74,5 @@
 /vcp                  emmc   /dev/block/by-name/vcp              flags=display="Video Driver [ vcp ]";slotselect;backup=1;flashimg=1
 
 # Removable storage
+/external_sd          auto   /dev/block/mmcblk0p1 /dev/block/mmcblk0  flags=display="SDcard";storage;wipeingui;removable;backup=0
 /usb_otg              auto   /dev/block/sdd1      /dev/block/sdd      flags=display="usb-otg";storage;wipeingui;removable;backup=0;fsflags=utf8
