@@ -35,7 +35,7 @@ system_dlkm /system_dlkm ext4  ro wait,slotselect,avb,logical,first_stage_mount
 
 /dev/block/by-name/metadata /metadata f2fs noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
 
-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,gc_merge,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065 wait,check,formattable,latemount,resize,reservedsize=128m,checkpoint=fs,fsverity,sysfs_path=/sys/devices/platform/soc/112b0000.ufshci
+/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity
 
 
 /dev/block/by-name/protect1 /mnt/vendor/protect_f ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc wait,check,formattable
@@ -53,7 +53,7 @@ system_dlkm /system_dlkm ext4  ro wait,slotselect,avb,logical,first_stage_mount
 /devices/platform/soc/11201000.usb0/11200000.xhci* auto vfat defaults voldmanaged=usbotg:auto
 /devices/platform/soc/11211000.usb1/11210000.xhci* auto vfat defaults voldmanaged=usbotg:auto
 
-/dev/block/by-name/frp       /frp         emmc defaults defaults
+/dev/block/by-name/frp       /persistent  emmc defaults defaults
 
 /dev/block/by-name/nvram     /nvram       emmc defaults defaults
 /dev/block/by-name/proinfo   /proinfo     emmc defaults defaults

@@ -54,7 +54,7 @@ static int create_dm(const char *device, const char *name, std::string *path, in
     return 1;
   }
 
-  ALOGD("create_dm dev: %s, name %s, start %d, blks %d\n", device, name, start_blk, blk_cnt);
+  ALOGI("create_dm dev: %s, name %s, start %d, blks %d\n", device, name, start_blk, blk_cnt);
   target = std::make_unique<DmTargetLinear>(0, blk_cnt, device, start_blk);
   if (!table.AddTarget(std::move(target)))
   {
