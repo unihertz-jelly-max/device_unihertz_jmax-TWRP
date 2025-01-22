@@ -34,9 +34,6 @@ on fs
     mount ext4 /dev/block/by-name/nvdata   /mnt/vendor/nvdata    rw wait
     mount ext4 /dev/block/by-name/nvcfg    /mnt/vendor/nvcfg     rw wait
 
-    install_keyring
-    setprop crypto.ready 1 
-
 on post-fs
     start boot-hal-1-2
 
@@ -142,6 +139,11 @@ service vendor.keymint /vendor/bin/hw/android.hardware.security.keymint@3.0-serv
     oneshot
     seclabel u:r:recovery:s0
 
+on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    write /proc/bootprof "crypto: install_keyring (crypto.ready=1)"
+    install_keyring
+    setprop crypto.ready 1
+
 on property:crypto.ready=1
     write /proc/bootprof "crypto: start vendor.keymint"
     start vendor.keymint
@@ -166,7 +168,12 @@ on property:ro.crypto.state=unencrypted
     stop vendor.gatekeeper
     stop vendor.keymint
 
-on property:twrp.decrypt.done=true
+on property:twrp.all.users.decrypted=true
+    stop teed
+    stop vendor.gatekeeper
+    stop vendor.keymint
+
+on property:crypto.ready=0
     stop teed
     stop vendor.gatekeeper
     stop vendor.keymint
