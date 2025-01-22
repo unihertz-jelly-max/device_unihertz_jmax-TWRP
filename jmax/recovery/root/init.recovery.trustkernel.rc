@@ -24,16 +24,11 @@ on property:vendor.trustkernel.fs.state=prepare
     mkdir               /data/vendor/t6/app
     chown system system /data/vendor/t6/app
     restorecon          /data/vendor/t6/app
+    
     setprop vendor.trustkernel.fs.state ready
 
 # For non-encrypted case
 on property:ro.crypto.state=unencrypted
-    setprop vendor.trustkernel.fs.mode 1
-    setprop vendor.trustkernel.fs.state prepare
-
-# agold hemanjin
-# For FBE/encrypted not enabled
-on property:ro.crypto.state=unsupported
     setprop vendor.trustkernel.fs.mode 1
     setprop vendor.trustkernel.fs.state prepare
 
@@ -53,6 +48,7 @@ on property:vendor.trustkernel.log.state=ready
     setprop vendor.trustkernel.log.state enable
 
 on property:vendor.trustkernel.ready=true && property:vendor.trustkernel.fs.state=ready
+    write /proc/bootprof "tkcore: start tee_check_keybox"
     start tee_check_keybox
 
 service teed /vendor/bin/teed \

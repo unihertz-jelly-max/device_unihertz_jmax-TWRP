@@ -14,7 +14,7 @@ on fs
     chmod +x /vendor/bin/hw/*
     # */
 
-    mkdir /mnt/vendor 0755 system system
+    mkdir /mnt/vendor           0755 system system
     mkdir /mnt/vendor/protect_f 0770 system system
     mkdir /mnt/vendor/protect_s 0770 system system
     mkdir /mnt/vendor/nvdata    0771 system system
@@ -132,13 +132,14 @@ service vendor.keymint /vendor/bin/hw/android.hardware.security.keymint@3.0-serv
     seclabel u:r:recovery:s0
 
 on property:crypto.ready=1
+    write /proc/bootprof "crypto: start vendor.keymint"
     start vendor.keymint
 
 on property:vendor.sys.listener.registered=true
     #start teed
     start vendor.gatekeeper
     start vendor.keymint
-   
+
 on property:hwservicemanager.ready=true
     #start teed
     start vendor.gatekeeper
