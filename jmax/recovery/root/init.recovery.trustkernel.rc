@@ -3,9 +3,9 @@ on post-fs
     write /proc/bootprof "tkcore: prepare system ta path"
 
     restorecon          /mnt/vendor/protect_f
-    mkdir               /mnt/vendor/protect_f/tee_twrp
-    chown system system /mnt/vendor/protect_f/tee_twrp
-    restorecon          /mnt/vendor/protect_f/tee_twrp
+    mkdir               /mnt/vendor/protect_f/tee
+    chown system system /mnt/vendor/protect_f/tee
+    restorecon          /mnt/vendor/protect_f/tee
 
     start teed
 
@@ -57,7 +57,7 @@ service teed /vendor/bin/teed \
     --sptapath  /data/vendor/t6/app \
     --systapath /vendor/app/t6 \
     --rpmbdev   /dev/rpmb0 \
-    --prot      /mnt/vendor/protect_f/tee_twrp \
+    --prot      /mnt/vendor/protect_f/tee \
     --prebuilt  /vendor/app/t6/data \
     --logpath   /data/vendor/t6/tkcore.log \
     --proprefix vendor.trustkernel

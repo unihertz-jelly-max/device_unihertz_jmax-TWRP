@@ -23,8 +23,6 @@ on fs
     mount ext4 /dev/block/by-name/protect2 /mnt/vendor/protect_s rw wait
     mount ext4 /dev/block/by-name/nvdata   /mnt/vendor/nvdata    rw wait
     mount ext4 /dev/block/by-name/nvcfg    /mnt/vendor/nvcfg     rw wait
-    mkdir /mnt/vendor/protect_f/tee_twrp 0755 system system
-    exec u:r:recovery:s0 system -- /vendor/bin/init_trustkernel_twrp.sh
 
     install_keyring
     setprop crypto.ready 1 
