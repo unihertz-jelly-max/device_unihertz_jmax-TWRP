@@ -10,6 +10,10 @@ on init
     mkdir /acct/uid
     mkdir /sdcard
 
+# We need vold early for metadata encryption
+on early-fs
+    start vold
+
 on fs
     wait /dev/block/platform/soc/112b0000.ufshci
     symlink /dev/block/platform/soc/112b0000.ufshci /dev/block/bootdevice
@@ -17,6 +21,8 @@ on fs
     chmod +x /vendor/bin/*
     chmod +x /vendor/bin/hw/*
     # */
+	
+    mount_all /first_stage_ramdisk/fstab.mt6878 --late
 
     mkdir /mnt/vendor           0755 system system
     mkdir /mnt/vendor/protect_f 0770 system system
