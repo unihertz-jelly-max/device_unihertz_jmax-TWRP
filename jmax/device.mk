@@ -83,6 +83,11 @@ PRODUCT_PACKAGES += \
     android.hardware.security.secureclock \
     android.hardware.security.sharedsecret \
 
+# Remotely Key provisioner
+PRODUCT_PACKAGES += android.hardware.security.rkp-V3-ndk
+RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.security.rkp-V3-ndk.so
+RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libcppcose_rkp.so
+
 # Keystore2
 PRODUCT_PACKAGES += \
     android.system.keystore2 \
