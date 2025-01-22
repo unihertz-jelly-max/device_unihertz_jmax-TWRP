@@ -12,12 +12,23 @@ ro.crypto.volume.filenames_mode=aes-256-cts
 
 # TEE
 ro.tee_support=1
+ro.tee.rkp_support=true
 ro.vendor.mtk_trustkernel_tee_support=1
 ro.hardware.gatekeeper=trustkernel
 ro.vendor.trustkernel.attest_ids=1
+ro.product.model_for_attestation=
+ro.product.brand_for_attestation=
+ro.product.name_for_attestation=
 
 # Keymaster
 keymaster_ver=4.1
 
+# A-gold
+ro.agui.platform_name=
+ro.agui.version_release=14
+ro.agui_tee=TRUSTKERNEL
+
 # Misc
 ro.vendor.mediatek.platform=MT6878
+ro.vendor.mtk_f2fs_enable=0
+ro.vendor.mtk_emmc_support=1
