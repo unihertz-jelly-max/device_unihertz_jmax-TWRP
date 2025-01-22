@@ -6,6 +6,10 @@ on init
     setprop sys.usb.ffs.aio_compat 1
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
 
+    mount cgroup none /acct cpuacct
+    mkdir /acct/uid
+    mkdir /sdcard
+
 on fs
     wait /dev/block/platform/soc/112b0000.ufshci
     symlink /dev/block/platform/soc/112b0000.ufshci /dev/block/bootdevice
@@ -113,8 +117,8 @@ service vendor.vibrator-default /vendor/bin/hw/android.hardware.vibrator-service
 service vendor.gatekeeper /vendor/bin/hw/android.hardware.gatekeeper-service.trustkernel
     class hal
     interface aidl android.hardware.gatekeeper.IGatekeeper/default
-    user root
-    group root
+    user system
+    group system
     disabled
     seclabel u:r:recovery:s0
 
@@ -124,9 +128,10 @@ service vendor.keymint /vendor/bin/hw/android.hardware.security.keymint@3.0-serv
     interface aidl android.hardware.security.keymint.IRemotelyProvisionedComponent/default
     interface aidl android.hardware.security.sharedsecret.ISharedSecret/default
     interface aidl android.hardware.security.secureclock.ISecureClock/default
-    user root
-    group root drmrpc
+    user system
+    group system drmrpc
     disabled
+    oneshot
     seclabel u:r:recovery:s0
 
 on property:crypto.ready=1
