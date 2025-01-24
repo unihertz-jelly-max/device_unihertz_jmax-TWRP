@@ -1,0 +1,23 @@
+
+/mnt/vendor/persist(/.*)?        u:object_r:persist_data_file:s0
+/mnt/vendor/persist/t6(/.*)?     u:object_r:tkcore_protect_data_file:s0
+/mnt/vendor/persist/keybox(/.*)? u:object_r:tkcore_protect_data_file:s0
+
+/mnt/vendor/protect_f(/.*)?      u:object_r:protect_f_data_file:s0
+/mnt/vendor/protect_f/tee(/.*)?  u:object_r:tkcore_protect_data_file:s0
+/mnt/vendor/protect_s(/.*)?      u:object_r:protect_s_data_file:s0 
+
+/vendor/app/t6(/.*)?             u:object_r:tkcore_systa_file:s0
+
+/data/vendor/t6(/.*)?            u:object_r:tkcore_data_file:s0
+/data/vendor/t6/app(/.*)?        u:object_r:tkcore_spta_file:s0
+/data/vendor/t6/tkcore.log       u:object_r:tkcore_log_file:s0 
+
+/data/vendor/flash(/.*)?         u:object_r:data_vendor_flash_file:s0
+/data/vendor_de/md(/.*)?         u:object_r:data_vendor_de_md_file:s0
+/data/vendor/radio(/.*)?         u:object_r:mtk_radio_data_file:s0
+
+/mnt/vendor/nvdata(/.*)?         u:object_r:nvdata_file:s0
+/mnt/vendor/nvcfg(/.*)?          u:object_r:nvcfg_file:s0
+/mnt/vendor/mdota(/.*)?          u:object_r:mcf_ota_file:s0
+/mnt/vendor/mdlpm(/.*)?          u:object_r:md_rfs_mdlpm_file:s0

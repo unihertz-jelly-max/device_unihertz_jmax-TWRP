@@ -1,0 +1,19 @@
+type protect_f_data_file, file_type, data_file_type;
+type protect_s_data_file, file_type, data_file_type;
+type persist_data_file, file_type, data_file_type;
+
+type tkcore_protect_data_file, file_type, data_file_type, core_data_file_type;
+type tkcore_log_file, file_type, data_file_type, core_data_file_type;
+type tkcore_systa_file, file_type, data_file_type, core_data_file_type;
+type tkcore_data_file, file_type, data_file_type, core_data_file_type;
+type tkcore_spta_file, file_type, data_file_type, core_data_file_type;
+
+type nvram_data_file, file_type, data_file_type;
+type nvdata_file, file_type, data_file_type;
+type nvcfg_file, file_type, data_file_type;
+
+type mcf_ota_file, file_type, data_file_type;
+type md_rfs_mdlpm_file, file_type, data_file_type;
+type data_vendor_flash_file, file_type, data_file_type;
+type data_vendor_de_md_file, file_type, data_file_type;
+type mtk_radio_data_file, file_type, data_file_type;
