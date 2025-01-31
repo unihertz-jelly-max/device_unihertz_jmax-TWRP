@@ -29,14 +29,14 @@ Aux Slot   | Second SIM or SDCard
 Works:
 
 - [X] ADB
-- [ ] Decryption
+- [X] Decryption
 - [X] Display
-- [ ] Fasbootd
+- [X] Fasbootd
 - [ ] Flashing
-- [ ] MTP
+- [X] MTP
 - [ ] Sideload
 - [ ] USB OTG
-- [ ] Vibrator
+- [X] Vibrator
 
 ## Preparation
 
@@ -75,7 +75,7 @@ cd ~/OrangeFox_sync/sync/
 ## Patch manifest.xml
 
 ```
-mkdir ~/TWRP
+cd ~/TWRP
 sed -i '/\/asuite\"/d' ~/TWRP/.repo/manifests/remove-minimal.xml
 sed -i '/\/gflags\"/d' ~/TWRP/.repo/manifests/remove-minimal.xml
 ./repo sync
@@ -119,7 +119,7 @@ Pick from common choices above (e.g. 13) or specify your own (e.g. aosp_barbet-e
 ```
 Enter the number of required device/firmware and type next command:
 ```
-mka adbd vendorbootimage
+mka vendorbootimage
 ```
 
 ## To use it:
