@@ -1,8 +1,13 @@
+[![Github All Releases](https://img.shields.io/github/downloads/unihertz-jelly-max/twrp_device_unihertz_jmax/total.svg)](https://github.com/unihertz-jelly-max/twrp_device_unihertz_jmax/releases)
+[![Github Latest Release](https://img.shields.io/github/downloads/unihertz-jelly-max/twrp_device_unihertz_jmax/latest/total.svg)](https://github.com/unihertz-jelly-max/twrp_device_unihertz_jmax/releases)
+[![ViewCount](https://views.whatilearened.today/views/github/unihertz-jelly-max/twrp_device_unihertz_jmax.svg)](https://github.com/unihertz-jelly-max/twrp_device_unihertz_jmax)
+[![Donations Page](https://github.com/andry81-cache/gh-content-static-cache/raw/master/common/badges/donate/donate.svg)](https://github.com/remittor/donate)
+
 ### TWRP device tree for Unihertz Jelly Max
 
 --------
 
-The Unihertz Jelly Max is a unique smartphone from Unihertz.
+The Jelly Max is a unique smartphone from Unihertz.
 
 It was released in September 2024.
 
@@ -19,7 +24,7 @@ Storage    | 256 GB (UFS 3.1)
 Display    | 720 x 1520 pixels, 5.05 inches, 60 hz
 Battery    | Lithium 4000 mAh, non-removable
 Dimensions | 128.7 x 62.7 x 16.3 mm
-Weight     | 180g
+Weight     | 185g
 Aux Slot   | Second SIM or SDCard
 
 ![Unihertz Jelly Max](https://github.com/user-attachments/assets/5a11fa0e-1cc3-49b4-a9e6-3f68c08f3c9a)
@@ -129,3 +134,7 @@ adb reboot bootloader
 fastboot flash vendor_boot vendor_boot.img
 fastboot reboot recovery
 ```
+
+## Donations
+
+[![Donations Page](https://github.com/andry81-cache/gh-content-static-cache/raw/master/common/badges/donate/donate.svg)](https://github.com/remittor/donate)
